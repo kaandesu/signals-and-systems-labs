@@ -28,6 +28,16 @@ c_delta = U_delta' * x'; % Projection onto canonical basis
 c_F = UF' * x';          % Projection onto Fourier basis
 c_new = U_kaan' * x';    % Projection onto the coolest basis
 
+UF = (1/sqrt(N)) * UF;
+
+testMatrix = UF * conj(UF');
+testMatrix2 = U_delta * conj(U_delta');
+testMatrix3 = U_kaan* conj(U_kaan');
+
+sum(testMatrix(:)) % good if ~4
+sum(testMatrix2(:)) % good if ~4
+sum(testMatrix3(:)) % good if ~4
+
 % Reconstruct the signal from each basis
 x_reconstructed_delta = U_delta * c_delta;
 x_reconstructed_F = UF * c_F;
