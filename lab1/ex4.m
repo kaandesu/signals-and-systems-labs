@@ -76,3 +76,20 @@ title('Projection Coefficients on Walsh Basis');
 xlabel('Index');
 ylabel('Magnitude');
 grid on;
+
+% Verifying the Parseval's Equality
+
+% Calculate the total energy in the time domain
+energy_time = sum(abs(x).^2);
+
+% Calculate the total energy in each basis representation
+energy_canonical = sum(abs(c_delta).^2);
+energy_fourier = sum(abs(c_Fourier).^2);
+energy_walsh = sum(abs(c_Walsh).^2);
+
+% Display the results
+disp('Energy comparison using Parseval''s Equality:');
+fprintf('Energy in time domain: %.4f\n', energy_time);
+fprintf('Energy in Canonical basis: %.4f\n', energy_canonical);
+fprintf('Energy in Fourier basis: %.4f\n', energy_fourier);
+fprintf('Energy in Walsh basis: %.4f\n', energy_walsh);
